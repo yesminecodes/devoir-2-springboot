@@ -1,6 +1,7 @@
 package com.yesmine.games.service;
 
 import com.yesmine.games.model.Game;
+import com.yesmine.games.model.Type;
 import com.yesmine.games.repos.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -40,6 +41,34 @@ public class GameServiceImpl implements GameService{
     @Override
     public Page<Game> getAllGamesParPage(int page, int size) {
         return gameRepository.findAll(PageRequest.of(page, size));
+    }
+    @Override
+    public List<Game> findByNomGame(String nom) {
+        return gameRepository.findByNomGame(nom);
+    }
+    @Override
+    public List<Game> findByNomGameContains(String nom) {
+        return gameRepository.findByNomGameContains(nom);
+    }
+    @Override
+    public List<Game> findByNomPrix(String nom, Double prix) {
+        return gameRepository.findByNomPrix(nom, prix);
+    }
+    @Override
+    public List<Game> findByType(Type type) {
+        return gameRepository.findByType(type);
+    }
+    @Override
+    public List<Game> findByTypeIdType(Long id) {
+        return gameRepository.findByTypeIdType(id);
+    }
+    @Override
+    public List<Game> findByOrderByNomGameAsc() {
+        return gameRepository.findByOrderByNomGameAsc();
+    }
+    @Override
+    public List<Game> trierGamesNomsPrix() {
+        return gameRepository.trierGamesNomsPrix();
     }
 
 }

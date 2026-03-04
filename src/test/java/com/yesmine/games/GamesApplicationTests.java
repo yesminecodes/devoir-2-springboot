@@ -1,6 +1,7 @@
 package com.yesmine.games;
 
 import com.yesmine.games.model.Game;
+import com.yesmine.games.model.Type;
 import com.yesmine.games.repos.GameRepository;
 import com.yesmine.games.service.GameService;
 import org.junit.jupiter.api.Test;
@@ -50,6 +51,79 @@ class GamesApplicationTests {
             System.out.println(g);
         }
     }
+
+    @Test
+    public void testFindByNomGame()
+    {
+        List<Game> games = gameRepository.findByNomGame("RPG");
+        for (Game g : games)
+        {
+            System.out.println(g);
+        }
+    }
+
+    @Test
+    public void testFindByNomGameContains ()
+    {
+        List<Game> games=gameRepository.findByNomGameContains("Valo");
+        for (Game g : games)
+        {
+            System.out.println(g);
+        } }
+
+    @Test
+    public void testfindByNomPrix()
+    {
+        List<Game> games = gameRepository.findByNomPrix("Valo", 0.0);
+        for (Game g : games)
+        {
+            System.out.println(g);
+        }
+    }
+
+    @Test
+    public void testfindByType()
+    {
+        Type type = new Type();
+        type.setIdType(25L);
+        List<Game> games = gameRepository.findByType(type);
+        for (Game g : games)
+        {
+            System.out.println(g);
+        }
+    }
+
+    @Test
+    public void findByTypeIdType()
+    {
+        List<Game> games = gameRepository.findByTypeIdType(25L);
+        for (Game g : games)
+        {
+            System.out.println(g);
+        }
+    }
+
+    @Test
+    public void testfindByOrderByNomGameAsc()
+    {
+        List<Game> games = gameRepository.findByOrderByNomGameAsc();
+        for (Game g : games)
+        {
+            System.out.println(g);
+        }
+    }
+
+    @Test
+    public void testTrierGamesNomsPrix()
+    {
+        List<Game> games = gameRepository.trierGamesNomsPrix();
+        for (Game g : games)
+        {
+            System.out.println(g);
+        }
+    }
+
+
 
     /*@Test
     public void testFindByNomGameContains()

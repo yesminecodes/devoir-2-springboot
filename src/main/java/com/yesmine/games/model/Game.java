@@ -1,9 +1,6 @@
 package com.yesmine.games.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -15,6 +12,9 @@ public class Game {
     private String nomGame;
     private Double prixGame;
     private Date dateCreation;
+    @ManyToOne
+    private Type type;
+
 
     public Game() {
         super();
@@ -50,6 +50,13 @@ public class Game {
     public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
     }
+    public Type getType() {
+        return type;
+    }
+    public void setType(Type Type) {
+        this.type = Type;
+    }
+
 
     @Override
     public String toString() {

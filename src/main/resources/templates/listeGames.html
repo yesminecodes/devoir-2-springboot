@@ -16,12 +16,15 @@
         <div class="card-body">
             <table class="table table-striped">
                 <tr>
-                    <th>ID</th><th>Nom Game</th><th>Prix</th>
+                    <th>ID</th><th>Nom Game</th><th>Prix</th><th>Date</th><th>Type</th><th>Actions</th>
                 </tr>
                 <tr th:each="g:${Games.content}">
                     <td th:text="${g.idGame}"></td>
                     <td th:text="${g.nomGame}"></td>
                     <td th:text="${g.prixGame}"></td>
+                    <td th:text="${g.DateCreation}"></td>
+                    <td th:text="${g.type != null ? g.type.nomType : 'N/A'}"></td>
+
 
                     <td><a class="btn btn-danger" onclick="return confirm('Etes-vous sûr ?')"
                            th:href="@{supprimerGame(id=${g.idGame}, page=${currentPage},size=${size})}">Supprimer</a></td>
